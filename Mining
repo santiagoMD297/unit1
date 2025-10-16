@@ -3,17 +3,19 @@ import random
 class MiningGrid:
 
 	def __init__(self):
-    	self.grid = []
+		self.grid = []
   
 	def generate_random(self, h, w, min_val, max_val):
-      	"""
-      	Generates a grid of size width (h * w) filled with random values
+		"""
+		Generates a grid of size width (h * w) filled with random values
         between min_val and max_val
         """
+		for num in range():
+			
 		pass
 
 	def mine_sector(self, location:tuple, amount:int):
-    	"""
+		"""
 		Mines (removes) amount minerals at location. In the event not enough resources
         are present, they will all be mined and the sector would become 0 (depleted)
 
@@ -26,10 +28,10 @@ class MiningGrid:
 
         
         """
-  		pass
+		pass
 
 	def bulk_mine(self, mine_list):
-      	"""
+		"""
 		Mines the asteroid based on the locations and amount given in mine_list:
 
         Args:
@@ -40,7 +42,7 @@ class MiningGrid:
         """
 
 	def find_richest_sector(self):
-      	 """
+		"""
         Finds the sector (row, column) with the highest resource level.
         Returns a tuple (row, column, value).
         """
@@ -51,17 +53,17 @@ class MiningGrid:
         Finds all sectors with 0 resources.
         Returns a list of (row, column) tuples.
         """
-        pass
+		pass
 
   	
 	def average_resource_level(self):
-        """
+		"""
         Calculates the average resource level of the asteroid.
         """
-  		pass
+		pass
 
 	def best_region(self):
-      	"""
+		"""
       	Determines the best region (2x2 sectors) with the highest mineral count
         
         Returns:
