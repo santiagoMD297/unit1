@@ -10,9 +10,13 @@ class MiningGrid:
 		Generates a grid of size width (h * w) filled with random values
         between min_val and max_val
         """
-		for num in range():
-			
-		pass
+		for row in range(h):
+			row = []
+			for num in range(w):
+				number = random.randint(min_val, max_val)
+				row.append(number)
+			self.grid.append(row)
+
 
 	def mine_sector(self, location:tuple, amount:int):
 		"""
@@ -28,7 +32,18 @@ class MiningGrid:
 
         
         """
-		pass
+		x = location[0]
+		y = location[1]
+		current = self.grid[x][y]
+		if amount >= current:
+			mined = current
+			self.grid[x][y] = 0
+		else:
+			mined = amount
+			self.grid[x][y] = current - amount
+		return mined
+
+
 
 	def bulk_mine(self, mine_list):
 		"""
@@ -40,20 +55,54 @@ class MiningGrid:
         Returns:
         	the total amount mined from all locations
         """
+		total = 0
+		for mine in mine_list:
+			total += self.grid.mine_sector(mine[0:1], mine[2])
+		return total
+
 
 	def find_richest_sector(self):
-		"""
-        Finds the sector (row, column) with the highest resource level.
-        Returns a tuple (row, column, value).
-        """
-		pass
+		g = self.grid
+		richest = 0
+		location = []
+
+		for h in g:
+			for w in h:
+				if w > richest:
+					richest = w
+		hight = 0
+		for h in g:
+			width = 0
+			for num in h:
+				if num == richest:
+					location.append(hight)
+					location.append(width)
+					return location
+				width += 1
+			hight += 1
+				
+
+
+		
+
+
 
 	def find_depleted_sectors(self):
 		"""
         Finds all sectors with 0 resources.
         Returns a list of (row, column) tuples.
         """
-		pass
+		locations0 = []
+		g = self.grid
+		h = 0
+		for hight in g:
+			w = 0
+			for width in hight:
+				if width == 0:
+					
+					
+
+
 
   	
 	def average_resource_level(self):
@@ -70,3 +119,5 @@ class MiningGrid:
         	A list of 4 (x, y) tuples
         """
 		pass
+mineg = MiningGrid()
+print(mineg.generate_random(5,5,10,100))
