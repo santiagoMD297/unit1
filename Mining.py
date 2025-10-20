@@ -51,7 +51,7 @@ class MiningGrid:
             for c in range(len(self.grid[r])):
                 if self.grid[r][c] > richest:
                     richest = self.grid[r][c]
-                    richest_spot = (r, c)
+                    richest_spot = (r, c, richest)
 
         return richest_spot
 
